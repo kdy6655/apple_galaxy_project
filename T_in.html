@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+	<style media="screen">
+	.div {
+		position:absolute;
+		top: 50%;  left: 50%;
+		border: solid 1px black;
+		width: 700px;
+		height: 400px;
+		margin-left: -250px;
+		margin-top: -200px;
+		text-align: center;
+		font-size:25px;
+	}
+	#modal.modal-overlay {
+		width: 100%;
+		height: 100%;
+		position: absolute;
+		left: 0;
+		top: 0;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		background: rgba(255, 255, 255, 0.25);
+		box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+		backdrop-filter: blur(1.5px);
+		-webkit-backdrop-filter: blur(1.5px);
+		border-radius: 10px;
+		border: 1px solid rgba(255, 255, 255, 0);
+		display:none;
+}
+#modal .modal-window {
+		background: rgba( 210, 210, 210, 0.50 );  /*모달 색상*/
+		box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+		backdrop-filter: blur( 13.5px );
+		-webkit-backdrop-filter: blur( 13.5px );
+		border-radius: 10px;
+		border: 3px solid rgba( 0, 0, 0, 0.18 );
+		width: 600px;
+		height: 350px;
+		position: relative;
+		top: -100px;
+		padding: 10px;
+}
+#modal .title {
+		padding-left: 10px;
+		display: inline;
+		text-shadow: 1px 1px 2px gray;
+		color: white;
+
+}
+#modal .title h2 {
+		display: inline;
+		text-align: center;
+		font-weight: 600;
+		color: black;
+
+}
+#modal .close-area {
+		display: inline;
+		float: right;
+		padding-right: 10px;
+		cursor: pointer;
+		text-shadow: 1px 1px 2px gray;
+		color: red;
+
+}
+
+#modal .content {
+		margin-top: 20px;
+		padding: 0px 10px;
+		text-shadow: 1px 1px 2px gray;
+		color: white;
+}
+	</style>
+</head>
+<body>
+	<!-- topbar -->
+	<div style="margin-left: -8px; margin-top: -70px;">
+		<img src="img/topbar.png">
+		<p style="color: white; margin-top:-90px; margin-left: 350px;">올바른 교육으로 학생들을 이끌어주시는 윤승우님 반갑습니다.</p>
+		<select onchange="if(this.options[this.selectedIndex].value!=''){window.open(this.options[this.selectedIndex].value,'_blank')}" style="margin-left:350px;">
+			<option value>다른 사이트 바로가기</option>
+			<option value="https://student.cnsa.hs.kr" >CNSA NET(교외)</option>
+			<option value="https://10.1.100.32">CNSA NET(교내)</option>
+			<option value="https://cnsa.hs.kr/hpw">학교 홈페이지</option>
+			<option value="http://library.cnsa.hs.kr">다산관</option>
+		</select>
+		<button onclick="location.href='#'">로그아웃</button>
+	</div>
+	<!-- br태그 지우고 사용할 것 -->
+	<br>
+	<br>
+
+	<!-- 클릭 시 모달창 띄어짐-->
+	<button type="button" id="btn-modal" style="cursor: pointer;"><img src="img/plus.png" alt=""></button>
+
+		<!-- 모달창 내용물-->
+	<div id="modal" class="modal-overlay">
+			<div class="modal-window">
+					<div class="close-area">X</div>
+					<div class="title">
+							<h2>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp 설문 조사 과목 입력하기</h2>
+					</div>
+					<div class="content">
+						<p style="font-size:20px; color:black; position:absolute; top:90px; left:50px; font-weight:500;">과목이름:</p>
+						<p style="position:absolute; font-size:20px; font-weight:600; top:150px; left:50px; font-weight:500; color:black;">EXCEL 파일 선택하기:</p>
+
+						<form style="position:absolute; top:210px; left:100px; font-size:15px; font-weight:540; color:black; ">
+							<input type="checkbox" name="vehicle1" value="별점 표시"> 별점 표시
+						</form>
+						<form style="position:absolute; top:210px; left:220px; font-size:15px; color:black;">
+							<input type="checkbox" name="vehicle1" value="댓글 표시"> 댓글 표시
+						</form>
+						<select onchange="if(this.options[this.selectedIndex].value!=''){window.open(this.options[this.selectedIndex].value,'_blank')}" style="position:absolute; font-size:15px; left:150px; top:95px;">
+							<option value>교과목 선택</option>
+							<option value>독서</option>
+							<option value>고급수학1</option>
+							<option value>확률과 통계</option>
+							<option value>체육</option>
+						</select>
+						<input type="file" name="" value="파일 선택" style="position:absolute; left:255px; top:153px; font-size:15px;">
+						<button type="button" class="btn btn-primary" style="position:absolute; top:260px; left:230px; width:100px;">제출</button>
+						<img src="main_logo.png" alt="" style="position:absolute; bottom:0; right:0; width:200px;">
+					</div>
+			</div>
+	</div>
+
+
+	<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+	<!-- bottombar -->
+	<footer>
+		<img src="img/bottombar.png" style="margin-left: -8px;">
+		<div style="margin-left: -180px; margin-top: -130px; text-align: center;">
+			<div style="margin-left:-200px;">
+				<a href="#" style="color:white; text-decoration: none;">개발과정</a><br><br>
+				<a href="#" style="color:white; text-decoration: none;">개발진 & 동아리소개</a>
+			</div>
+			<div style="margin-left:500px; margin-top: -65px;">
+				<a href="#" style="color:white; text-decoration: none;">이용약관</a><br><br>
+				<a href="#" style="color:white; text-decoration: none;">개인정보정책</a>
+			</div>
+			<div style="margin-left: 150px; margin-top: 20px;">
+				<p style="color:white;">Copyright © Mrs.APPLE AND Mr.GALAXY. All rights reserved. │ 충남 아산시 탕정면 삼성로 77 │ 010-XXXX-XXXX</p>
+			</div>
+		</div>
+	</footer>
+ <script type="text/javascript">
+
+ const modal = document.getElementById("modal")
+ function modalOn() {
+     modal.style.display = "flex"
+ }
+ function isModalOn() {
+     return modal.style.display === "flex"
+ }
+ function modalOff() {
+     modal.style.display = "none"
+ }
+ //특정 버튼을 누르면 모달창이 켜지게 하기
+ const btnModal = document.getElementById("btn-modal")
+ btnModal.addEventListener("click", e => {
+     modalOn()
+ })
+
+ //모달창의 클로즈(x) 버튼을 누르면 모달창이 꺼지게 하기
+ const closeBtn = modal.querySelector(".close-area")
+ closeBtn.addEventListener("click", e => {
+     modalOff()
+ })
+
+ //모달창 바깥 영역을 클릭하면 모달창이 꺼지게 하기
+ modal.addEventListener("click", e => {
+     const evTarget = e.target
+     if(evTarget.classList.contains("modal-overlay")) {
+         modalOff()
+     }
+ })
+
+ //모달창이 켜진 상태에서 ESC 버튼을 누르면 모달창이 꺼지게 하기
+ window.addEventListener("keyup", e => {
+     if(isModalOn() && e.key === "Escape") {
+         modalOff()
+     }
+ })
+ </script>
+</body>
+</html>
